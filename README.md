@@ -1,7 +1,5 @@
 ##Naming Conventions
 
-- When constructing string IDs or ID prefixes in the code, do not use "dojo", "dijit" or "dojox" in the names. Because we now allow multiple versions of dojo in a page, it is important you use _scopeName instead (dojo._scopeName, dijit._scopeName, dojox._scopeName).
-
 - Names representing modules SHOULD be in all lower case.
 
 - Names representing types (classes) MUST be nouns and written using CamelCase capitalization:
