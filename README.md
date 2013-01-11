@@ -6,12 +6,14 @@
 ```javascript
 	Account, EventHandler
 ```
-- Constants SHOULD be placed within a single object created as a holder for constants, emulating an Enum; the enum SHOULD be named appropriately, and members SHOULD be named using either CamelCase or UPPER_CASE capitalization:
+- Constants SHOULD be named using UPPER_CASE capitalization and if multiple, SHOULD be placed within a single object created as a holder for constants, emulating an Enum; the enum SHOULD be named appropriately:
 ```javascript
-	var NodeTypes = {
-		Element : 1,
-		DOCUMENT: 2
-	}
+	var MAX_LEVEL = 5;
+	var playerAttribute = {
+		EARTH : 1,
+		WATER: 2,
+		FIRE: 3
+	};
 ````
 - Abbreviations and acronyms SHOULD NOT be UPPERCASE when used as a name:
 ```javascript
@@ -55,10 +57,6 @@
 ```javascript
 	MouseEventHandler // NOT MseEvtHdlr
 ```
-Note that, again, any context that can be determined by module membership SHOULD be used when determining if a variable name is clear. For example, a class that represents a mouse event handler:
-```javascript
-	dojo.events.mouse.Handler // NOT dojo.events.mouse.MouseEventHandler
-```
 - Classes/constructors MAY be named based on their inheritance pattern, with the base class to the right of the name:
 ```
 EventHandler
@@ -73,8 +71,6 @@ The base class CAN be dropped from a name if it is obviously implicit in the nam
 
 ##Specific Naming Conventions
 
-
-- The terms get/set SHOULD NOT used where a field is accessed, unless the variable being accessed is lexically private.
 
 - The "is" prefix SHOULD be used for boolean variables and methods. Alternatives include "has", "can" and "should"
 
@@ -101,8 +97,6 @@ The base class CAN be dropped from a name if it is obviously implicit in the nam
 	isNotError, isNotFound are unacceptable.
 ```
 
-- Exception classes SHOULD be suffixed with "Exception" or "Error" .. FIXME (trt) not sure about this?
-
 - Methods returning an object MAY be named after what they return, and methods returning void after what they do.
 
 
@@ -110,42 +104,37 @@ The base class CAN be dropped from a name if it is obviously implicit in the nam
 
 - Class or object-per-file guidelines are not yet determined.
 
-- Tabs (set to 4 spaces) SHOULD be used for indentation.
+- Indentation MUST use real tabs.
 
-- If your editor supports "file tags", please append the appropriate tag at the end of the file to enable others to effortlessly obey the correct indentation guidelines for that file:
-```javascript
-	// vim:ts=4:noet:tw=0:
-```
 
 - The incompleteness of a split line MUST be made obvious :
 ```javascript
-	var someExpression = Expression1
-		+ Expression2
-		+ Expression3;
 	var o = someObject.get(
 		Expression1,
 		Expression2,
 		Expression3
 	);
 ```
-Note the indentation for expression continuation is indented relative to the variable name, while indentation for parameters is relative to the method being called.
-Note also the position of the parenthesis in the method call; positioning SHOULD be similar to the use of block notation.
 
 
 ##Variables
 
 - Variables SHOULD be initialized where they are declared and they SHOULD be declared in the smallest scope possible. A null initialization is acceptable.
+
 - Variables MUST never have a dual meaning.
+
 - Related variables of the same type CAN be declared in a common statement; unrelated variables SHOULD NOT be declared in the same statement.
+
 - Variables SHOULD be kept alive for as short a time as possible.
+
 - Loops / iterative declarations
 	- Only loop control statements MUST be included in the "for" loop construction.
 	- Loop variables SHOULD be initialized immediately before the loop; loop variables in a "for" statement MAY be initialized in the "for" loop construction.
-	- The use of "do...while" loops is acceptable (unlike in Java).
-	- The use of "break" and "continue" is not discouraged (unlike in Java).
+	- The use of "do...while" loops is acceptable.
+	- The use of "break" and "continue" is not discouraged.
 
 - Conditionals
-	- Complex conditional expressions SHOULD be avoided; use temporary boolean variables instead.
+	- Complex conditional expressions SHOULD be avoided; use temporary boolean variables instead with proper naming.
 	- The nominal case SHOULD be put in the "if" part and the exception in the "else" part of an "if" statement.
 	- Executable statements in conditionals MUST be avoided.
 
@@ -204,17 +193,17 @@ Note also the position of the parenthesis in the method call; positioning SHOULD
 * switch statements SHOULD have the following form:
 ```javascript
 	switch (condition) {
-	case ABC:
-		statements;
-		//  fallthrough
-	case DEF:
-		statements;
-		break;
-	default:
-		statements;
-		break;
-		// need a break keyword on the last case
-	}
+		case ABC:
+			statements;
+			//  fallthrough
+		case DEF:
+			statements;
+			break;
+		default:
+			statements;
+			break;
+			// always need a break keyword on the last case
+		}
 ```
 
 * try...catch...finally statements SHOULD have the following form:
@@ -228,52 +217,13 @@ Note also the position of the parenthesis in the method call; positioning SHOULD
 	}
 ```
 
-* A single statement if-else, while or for MUST NOT be written without brackets, but CAN be written on the same line:
-```javascript
-	if (condition) { statement; }
-	while (condition) { statement; }
-	for (intialization; condition; update) { statement; }
-```
-
 ### Whitespace
 
 * Conventional operators MAY be surrounded by a space (including ternary operators).
 
-* The following reserved words SHOULD NOT be followed by a space:
-
-	- break
-	- catch
-	- continue
-	- do
-	- else
-	- finally
-	- for
-	- function if anonymous, ex. var foo = function (){};
-	- if
-	- return
-	- switch
-	- this
-	- try
-	- void
-	- while
-	- with
-
-* The following reserved words SHOULD be followed by a space:
-
-	- case
-	- default
-	- delete
-	- function if named, ex. function foo() {};
-	- in
-	- instanceof
-	- new
-	- throw
-	- typeof
-	- var
-
 * Commas SHOULD be followed by a space.
 
-* Colons MAY be surrounded by a space.
+* Colons SHOULD be followed by a space.
 
 * Semi-colons in for statements SHOULD be followed by a space.
 
@@ -284,6 +234,9 @@ Note also the position of the parenthesis in the method call; positioning SHOULD
 * Logical units within a block SHOULD be separated by one blank line.
 
 * Statements MAY be aligned wherever this enhances readability.
+ 
+* Curly braket SHOULD have inner spaces. `var obj = { property: value, action: function }`
+
 
 ### Comments
 
@@ -293,7 +246,7 @@ Note also the position of the parenthesis in the method call; positioning SHOULD
 
 * Comments SHOULD be indented relative to their position in the code, preceding or to the right of the code in question.
 
-* The declaration of collection variables SHOULD be followed by a comment stating the common type of the elements in the collection.
+* The declaration of variables MAY be followed by a comment on the same line.
 
 * Comments SHOULD be included to explain BLOCKS of code, to explain the point of the following block.
 
