@@ -20,85 +20,109 @@ Consistently styled code can:
 - Make it easier to establish what code can be reused
 - Clarify how updates to an implementation should be styled or structured (remember that consistent code, even when written by a team, should look like one person wrote it).
 
-##Naming Conventions
 
-- Names representing modules SHOULD be in all lower case.
+## Indentation
+One of the most religious talk. Let's cut it out, at Wizcorp we use **tabs**.
 
-- Names representing types (classes) MUST be nouns and written using CamelCase capitalization:
+
+## Semicolons
+It's true that JavaScript is so awesome that you don't have tu use them, but don't make this mistake and **use those semicolon**s!
+
+
+## Line length
+Limit your lines to **120 characters**. We are not living in the 90's anymore our screen got a lot bigger, but in the same time it shouldn't mean we should use all of it, readability come first.
+
+
+## Quotes
+The use is **single quotes** is higly recommanded, but we won't stop you if you need to use double quotes in some specific cases.
 ```javascript
-	Account, EventHandler
+myButton.on('tap', function () {
+	alert("You tapped me");
+});
 ```
-- Constants SHOULD be named using UPPER_CASE capitalization and if multiple, SHOULD be placed within a single object created as a holder for constants, emulating an Enum; the enum SHOULD be named appropriately:
+>Note: in this example single quotes are used for keys while double quotes are used for text
+
+
+## Whitespace
+
+* Conventional operators SHOULD be surrounded by a space (including ternary operators).
+
+* Commas SHOULD be followed by a space.
+
+* Colons SHOULD be followed by a space.
+
+* Semi-colons in for statements SHOULD be followed by a space.
+
+* Semi-colons SHOULD NOT be preceded by a space.
+
+* Function calls and method calls SHOULD NOT be followed by a space. Example: `doSomething(someParameter); // NOT doSomething (someParameter)`
+
+* Logical units within a block SHOULD be separated by one blank line.
+
+* Curly braket SHOULD have inner spaces.
+
+
+## Braces
+Always start your curly braces on the same line as whatever they're opening.
 ```javascript
-	var MAX_LEVEL = 5;
-	var playerAttribute = {
-		EARTH : 1,
-		WATER: 2,
-		FIRE: 3
-	};
+if (time < 60) {
+	console.log('less than a minute');
+} else {
+	console.log('a minute or more');
+}
+```
+
+##Naming
+All names SHOULD be written in English, American English.
+### In general:
+##### Variable and Property names
+Should use lower camel case capitalization. They should also be descriptive. Single character variables and uncommon abbreviations should generally be avoided.
+```javascript
+var myName = 'John';
+```
+##### Function and Method names
+Should use lower camel case capitalization. They should also be descriptive. Single character variables and uncommon abbreviations should generally be avoided. Should be verbs or verb phrases.
+```javascript
+function getMaxLevel() {
+	return 5;
+}
+
+obj.getSomeValue();
+```
+##### Class names
+Should be capitalized using upper camel case. They should be nouns.
+```javascript
+function Button() {
+}
+```
+##### Constants and Enum
+Should be declared as regular variables or static class properties, using all uppercase letters.
+```javascript
+var MAX_LEVEL = 5;
+var playerAttribute = {
+	EARTH : 1,
+	WATER: 2,
+	FIRE: 3
+};
 ````
-- Abbreviations and acronyms SHOULD NOT be UPPERCASE when used as a name:
-```javascript
-	getInnerHtml(), getXml(), XmlDocument
-```
-- Names representing methods SHOULD be verbs or verb phrases:
-```javascript
-	obj.getSomeValue()
-```
-- Public class variables MUST be written using mixedCase capitalization.
+### Extra rules
 
-- CSS variable names SHOULD follow the same conventions as public class variables.
-
-- Private class variables MAY be written using _mixedCase (with preceding underscore):
+##### Abbreviations and acronyms
+Should be avoided, and existing ones should not be uppercase when used as a name:
 ```javascript
-	var MyClass = function () {
-		var _buffer;
-		this.doSomething = function () {
-		};
-	}
-```
-- Variables that are intended to be private, but are not closure bound, SHOULD be prepended with a "_" (underscore) char:
-```javascript
-	this._somePrivateVariable = statement;
-```
-> Note: the above variable also follows the convention for a private variable.
-
-- Generic variables SHOULD have the same name as their type:
-```javascript
-	setTopic(topic) // where topic is of type Topic
-```
-- All names SHOULD be written in English, American English.
-
-- Variables with a large scope SHOULD have globally unambiguous names; ambiguity MAY be distinguished by module membership. Variables with small or private scope MAY have terse names.
-
-- The name of the return object is implicit, and SHOULD be avoided in a method name:
-```javascript
-	getHandler(); // NOT getEventHandler()
-```
-- Public names SHOULD be as clear as necessary and SHOULD avoid unclear shortenings and contractions:
-```javascript
-	MouseEventHandler // NOT MseEvtHdlr
-```
-- Classes/constructors MAY be named based on their inheritance pattern, with the base class to the right of the name:
-```
-EventHandler
-UIEventHandler
-MouseEventHandler
-```
-The base class CAN be dropped from a name if it is obviously implicit in the name:
-```javascript
-	MouseEventHandler // as opposed to MouseUIEventHandler
+getInnerHtml(), getXml(), XmlDocument
 ```
 
-
-##Specific Naming Conventions
+##### Private variable
+When exposed, should be prepended with a "_" (underscore) char:
+```javascript
+this._somePrivateVariable = statement;
+```
+
+#####Specific Naming Conventions
 
 
 - The "is" prefix SHOULD be used for boolean variables and methods. Alternatives include "has", "can" and "should"
-
-- The term "compute" CAN be used in methods where something is computed.
-
-- The term "find" CAN be used in methods where something is looked up.
 
 - The terms "initialize" or "init" CAN be used where an object or a concept is established.
 
@@ -112,166 +136,227 @@ The base class CAN be dropped from a name if it is obviously implicit in the nam
 
 - Complement names MUST be used for complement entities. Examples: get/set, add/remove, create/destroy, start/stop, insert/delete, begin/end, etc.
 
-- Abbreviations in names SHOULD be avoided.
-
 - Negated boolean variable names MUST be avoided:
 ```javascript
-	isNotError, isNotFound are unacceptable.
+	var isNotError, isNotFound; // WRONG.
 ```
 
 - Methods returning an object MAY be named after what they return, and methods returning void after what they do.
 
 
-##Files
-
-- Class or object-per-file guidelines are not yet determined.
-
-- Indentation MUST use real tabs.
+##Variable declarations
+Declare one variable per var statement, it makes it easier to re-order the lines, and put declarations wherever they make sense.
+Idealy, variables should be initialized where they are declared and they must be declared in the smallest scope possible. A null initialization is acceptable.
 
 
-- The incompleteness of a split line MUST be made obvious :
-```javascript
-	var o = someObject.get(
-		Expression1,
-		Expression2,
-		Expression3
-	);
-```
+### Loop
+- Only loop control statements MUST be included in the "for" loop construction.
+- Loop variables should be initialized immediately before the loop; loop variables in a "for" statement may be initialized in the "for" loop construction.
+- The use of "break" and "continue" is not discouraged.
 
+### Conditionals
+- Complex conditional expressions SHOULD be avoided; use temporary boolean variables instead with proper naming.
+- The nominal case should be put in the "if" part and the exception in the "else" part of an "if" statement.
+- Executable statements in conditionals MUST be avoided.
+
+### Miscellaneous
+- The use of magic numbers in the code should be avoided; they should be declared using named **constants** instead.
 
-##Variables
 
-- Variables SHOULD be initialized where they are declared and they SHOULD be declared in the smallest scope possible. A null initialization is acceptable.
-
-- Variables MUST never have a dual meaning.
-
-- Related variables of the same type CAN be declared in a common statement; unrelated variables SHOULD NOT be declared in the same statement.
-
-- Variables SHOULD be kept alive for as short a time as possible.
-
-- Loops / iterative declarations
-	- Only loop control statements MUST be included in the "for" loop construction.
-	- Loop variables SHOULD be initialized immediately before the loop; loop variables in a "for" statement MAY be initialized in the "for" loop construction.
-	- The use of "do...while" loops is acceptable.
-	- The use of "break" and "continue" is not discouraged.
-
-- Conditionals
-	- Complex conditional expressions SHOULD be avoided; use temporary boolean variables instead with proper naming.
-	- The nominal case SHOULD be put in the "if" part and the exception in the "else" part of an "if" statement.
-	- Executable statements in conditionals MUST be avoided.
-
-- Miscellaneous
-	- The use of magic numbers in the code SHOULD be avoided; they SHOULD be declared using named "constants" instead.
-	- Floating point constants SHOULD ALWAYS be written with decimal point and at least one decimal.
-	- Floating point constants SHOULD ALWAYS be written with a digit before the decimal point.
-
-
-##Layout
-
-
-### Block statements.
-
-* Block layout SHOULD BE as illustrated below:
+## Object and Array creation
+Use trailing commas and put short declarations on a single line. Only quote keys when your interpreter complains.
 ```javascript
-	while (!isDone) {
-		doSomething();
-		isDone = moreToDo();
+var a = ['hello', 'world'];
+var b = {
+	good: 'code',
+	'is generally': 'pretty'
+};
+var c = { short: true };
+```
+
+## Equality operator
+Programming is not about remembering [stupid rules](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/Comparison_Operators). Use the triple equality operator as it will work just as expected.
+```javascript
+var a = 0;
+if (a === '') {
+	console.log('winning');
+}
+```
+
+## Extending prototypes
+Do not extend the prototypes of any objects, especially native ones.
+
+## Conditions
+Any non-trivial conditions should be assigned to a descriptive variable
+```
+var isAuthorized = (user.isAdmin() || user.isModerator());
+if (isAuthorized) {
+	console.log('winning');
+}
+```
+
+## Return statement
+To avoid deep nesting of if-statements, always return a functions value as early as possible.
+
+```
+function isPercentage(val) {
+	if (val < 0) {
+		return false;
 	}
-```
 
-* if statements SHOULD have the following form:
-```javascript
-	if (someCondition) {
-		statements;
-	} else if (someOtherCondition) {
-		statements;
-	} else {
-		statements;
+	if (val > 100) {
+		return false;
 	}
+
+	return true;
+}
+
 ```
 
-* for statements SHOULD have the following form:
-```javascript
-	for (initialization; condition; update) {
-		statements;
+## Inheritance / Object oriented programming
+Object oriented programming is a fairly well-understood approach to write maintainable Software. Even so JavaScript does not explicetly favor OOP, it makes it easy enough to use it.
+
+```
+(function () {
+
+	// Helper function for inheritance
+
+	function inherits(child, parent) {
+		child.prototype = Object.create(parent.prototype, {
+			constructor: { value: child, enumerable: false, writable: true, configurable: true }
+		});
+	};
+
+
+	// SuperClass definition
+
+	function SuperClass () {
+		this.x = 0;
+		this.y = 0;
 	}
-```
 
-* while statements SHOULD have the following form:
-```javascript
-	while (!isDone) {
-		doSomething();
-		isDone = moreToDo();
-	}
-```
+	SuperClass.prototype.move = function (params) {
+		params = params || {};
+		this.x += params.x || 0;
+		this.y += params.y || 0;
+	};
 
-* do...while statements SHOULD have the following form:
-```javascript
-	do {
-		statements;
-	} while (condition);
-```
 
-* switch statements SHOULD have the following form:
-```javascript
-	switch (condition) {
-		case ABC:
-			statements;
-			//  fallthrough
-		case DEF:
-			statements;
-			break;
-		default:
-			statements;
-			break;
-			// always need a break keyword on the last case
+	//Class definition
+
+	function Class(params) {
+		SuperClass.call(this);
+		
+		params = params || {};
+
+		this.width = params.width || 0;
+		this.height = params.height || 0;
+
+		if (params.x || params.y) {
+			SuperClass.prototype.move.call(this, params);
 		}
-```
-
-* try...catch...finally statements SHOULD have the following form:
-```javascript
-	try {
-		statements;
-	} catch (ex) {
-		statements;
-	} finally {
-		statements;
 	}
+
+	inherits(Class, SuperClass);
+
+	Class.prototype.resize = function (width, height) {
+		if (width) {
+			this.width = width;
+		}
+		
+		if (height) {
+			this.height = height;
+		}
+	};
+
+
+	// SubClass definition
+
+	function SubClass(params) {
+
+		// Set a custom value
+		params.height = params.width * 2 || 10;
+
+		Class.call(this, params);
+		this.o = {};
+	}
+
+	inherits(SubClass, Class);
+
+	// Overrid of the parent method
+	SubClass.prototype.resize = function (params) {
+		Class.prototype.resize.call(this, { width: params.width, height: params.height + 50 });
+	}
+
+
+	// Code
+
+	var myObject = new SubClass({ x: 10, width: 25 });
+	console.log(myObject);
+	
+	myObject.resize({ width: 10, height: 10 });
+	console.log(myObject);
+
+})();
 ```
 
-### Whitespace
+## Comments
 
-* Conventional operators MAY be surrounded by a space (including ternary operators).
+Comments are the documentation of your code, therefore **tricky code should not be commented but rewritten**. All comments should be written in English and be politically correct, even temporary comments.
+Comments should be indented relative to their position in the code, preceding or to the right of the code in question.
+Even if everybody likes commented code, do not commecnt every single line of code, you will kill the readability of it.
+Try to put comment at the top of a block of code to explain the point of it. And do not comment at the end of line of code, or only for declaration of variables (see JSDoc).
 
-* Commas SHOULD be followed by a space.
-
-* Colons SHOULD be followed by a space.
-
-* Semi-colons in for statements SHOULD be followed by a space.
-
-* Semi-colons SHOULD NOT be preceded by a space.
-
-* Function calls and method calls SHOULD NOT be followed by a space. Example: doSomething(someParameter); // NOT doSomething (someParameter)
-
-* Logical units within a block SHOULD be separated by one blank line.
-
-* Statements MAY be aligned wherever this enhances readability.
- 
-* Curly braket SHOULD have inner spaces. `var obj = { property: value, action: function }`
+## JSDoc
+If you need to learn more about JSDoc and its tags you can visit the official [wiki](https://code.google.com/p/jsdoc-toolkit/w/list).
 
 
-### Comments
+### Comment Syntax
+The JSDoc syntax is based on JavaDoc . Many tools extract metadata from JSDoc comments to perform code validation and optimizations. These comments must be well-formed.
+```
+/**
+ * A JSDoc comment should begin with a slash and 2 asterisks.
+ * Inline tags should be enclosed in braces like {@code this}.
+ * @desc Block tags should always start on their own line.
+ */
+```
 
-* Tricky code SHOULD not be commented, but rewritten.
+### Class Comments
+Classes must be documented with a description and a type tag that identifies the constructor.
+```
+/**
+ * Class making something fun and easy.
+ * @param {string} arg1 An argument that makes this more interesting.
+ * @param {Array.<number>} arg2 List of numbers to be processed.
+ * @constructor
+ */
+function MyClass(arg1, arg2) {
+	// ...
+};
+```
 
-* All comments SHOULD be written in English.
-
-* Comments SHOULD be indented relative to their position in the code, preceding or to the right of the code in question.
-
-* The declaration of variables MAY be followed by a comment on the same line.
-
-* Comments SHOULD be included to explain BLOCKS of code, to explain the point of the following block.
-
-* Comments SHOULD NOT be included for every single line of code.
-
+### Method and Function Comments
+Parameter and return types should be documented. The method description may be omitted if it is obvious from the parameter or return type descriptions. Method descriptions should start with a sentence written in the third person declarative voice.
+```
+/**
+ * Operates on an instance of MyClass and returns something.
+ * @param {MyClass} obj Instance of MyClass which leads to a long
+ *     comment that needs to be wrapped to two lines.
+ * @return {boolean} Whether something occured.
+ */
+function someMethod(obj) {
+	// ...
+}
+```
+### Property Comments
+```
+/** @constructor */
+function MyClass() {
+	/**
+	 * Maximum number of things per pane.
+	 * @type {number}
+	 */
+	this.someProperty = 4;
+}
+```
 
