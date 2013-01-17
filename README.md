@@ -150,17 +150,21 @@ Idealy, variables should be initialized where they are declared and they must be
 
 
 ### Loop
-- Only loop control statements MUST be included in the "for" loop construction.
-- Loop variables should be initialized immediately before the loop; loop variables in a "for" statement may be initialized in the "for" loop construction.
-- The use of "break" and "continue" is not discouraged.
+Only loop control statements MUST be included in the "for" loop construction.
+
+Loop variables should be initialized immediately before the loop; loop variables in a "for" statement may be initialized in the "for" loop construction.
+
+The use of "break" and "continue" is not discouraged.
 
 ### Conditionals
-- Complex conditional expressions SHOULD be avoided; use temporary boolean variables instead with proper naming.
-- The nominal case should be put in the "if" part and the exception in the "else" part of an "if" statement.
-- Executable statements in conditionals MUST be avoided.
+Complex conditional expressions SHOULD be avoided; use temporary boolean variables instead with proper naming.
+
+The nominal case should be put in the "if" part and the exception in the "else" part of an "if" statement.
+
+Executable statements in conditionals MUST be avoided.
 
 ### Miscellaneous
-- The use of magic numbers in the code should be avoided; they should be declared using named **constants** instead.
+The use of magic numbers in the code should be avoided; they should be declared using named **constants** instead.
 
 
 ## Object and Array creation
@@ -302,9 +306,14 @@ Object oriented programming is a fairly well-understood approach to write mainta
 
 ## Comments
 
-Comments are the documentation of your code, therefore **tricky code should not be commented but rewritten**. All comments should be written in English and be politically correct, even temporary comments.
+Comments are the documentation of your code, therefore **tricky code should not be commented but rewritten**. 
+
+All comments should be written in English and be politically correct, even those are supposed to be temporary.
+
 Comments should be indented relative to their position in the code, preceding or to the right of the code in question.
+
 Even if everybody likes commented code, do not commecnt every single line of code, you will kill the readability of it.
+
 Try to put comment at the top of a block of code to explain the point of it. And do not comment at the end of line of code, or only for declaration of variables (see JSDoc).
 
 ## JSDoc
