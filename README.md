@@ -26,7 +26,7 @@ One of the most religious talk. Let's cut it out, at Wizcorp we use **tabs**.
 
 
 ## Semicolons
-It's true that JavaScript is so awesome that you don't have tu use them, but don't make this mistake and **use those semicolon**s!
+It's true that JavaScript is so awesome that you don't have tu use them, but don't make this mistake and **use those semicolons**!
 
 
 ## Line length
