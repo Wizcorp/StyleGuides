@@ -4,7 +4,7 @@
 
 Before we begin, let us remind ourselves exactly what a code style guide is:
 
-A style guide or style manual is a set of standards for the writing and design of code. The implementation of a style guide provides uniformity in code style and formatting, often covering guidelines regarding indentation (tabs vs. spaces), variable and function naming conventions, where best to apply whitespace and so on.
+A style guide or style manual is a set of standards for the writing and design of code. The implementation of a style guide provides uniformity in code style and formatting, often covering guidelines regarding indentation, variable and function naming conventions, where best to apply whitespace and so on.
 
 
 ## Why is consistent code style important?
@@ -22,7 +22,7 @@ Consistently styled code can:
 
 
 ## Indentation
-One of the most religious talk. Let's cut it out, at Wizcorp we use **tabs**.
+One of the most religious talk. Let's cut it out, at we use **tabs** for our projects. Tabs should be use for indentation only, meaning strictly only at the begining of lines.
 
 
 ## Semicolons
@@ -30,11 +30,11 @@ It's true that JavaScript is so awesome that you don't have tu use them, but don
 
 
 ## Line length
-Limit your lines to **120 characters**. We are not living in the 90's anymore our screen got a lot bigger, but in the same time it shouldn't mean we should use all of it, readability come first.
+Limit your lines to **120 characters**. We are not living in the 90's anymore our screen got a lot bigger, but at the same time our brains are the same, so let's not go too far, readability come first.
 
 
 ## Quotes
-The use is **single quotes** is higly recommanded, but we won't stop you if you need to use double quotes in some specific cases.
+The use of **single quotes** only is higly recommanded, but we won't stop you if you need to use double quotes in some specific cases.
 ```javascript
 myButton.on('tap', function () {
 	alert("You tapped me");
