@@ -13,7 +13,7 @@ They say that good code is it's own documentation. We don't completely agree wit
 
 Following a consistent style guide both helps enforce this concept and improves the overall quality of the code we write. This facilitates other developers stepping in to assist with maintenance more easily and can certainly save time in the long haul.
 
-Readable source code is arguably easier to understand as well. It's easier to browse, locate and fix bugs in and more easy to optimize. It can also give us a clearer picture of how the code fits into a larger body of work.
+Readable source code is arguably easier to understand as well. It's easier to browse, locate and fix bugs in and easier to optimize. It can also give us a clearer picture of how the code fits into a larger body of work.
 
 Consistently styled code can:
 - Reduce the lead time required to understand an implementation
@@ -22,7 +22,7 @@ Consistently styled code can:
 
 
 ## Indentation
-One of the most religious talk. Let's cut it out, at we use **tabs** for our projects. Tabs should be use for indentation only, meaning strictly only at the begining of lines.
+One of the most religious talk. Let's cut it out, at we use **tabs** for our projects. Tabs should be use for indentation only, meaning strictly only at the beginning of lines.
 
 
 ## Semicolons
@@ -34,7 +34,7 @@ Limit your lines to **120 characters**. We are not living in the 90's anymore ou
 
 
 ## Quotes
-The use of **single quotes** only is higly recommanded, but we won't stop you if you need to use double quotes in some specific cases.
+The use of **single quotes** only is highly recommended, but we won't stop you if you need to use double quotes in some specific cases.
 ```javascript
 myButton.on('tap', function () {
 	alert("You tapped me");
@@ -59,7 +59,7 @@ myButton.on('tap', function () {
 
 * Logical units within a block SHOULD be separated by one blank line.
 
-* Curly braket SHOULD have inner spaces.
+* Curly braces SHOULD have inner spaces.
 
 
 ## Braces
@@ -218,7 +218,7 @@ function isPercentage(val) {
 ```
 
 ## Inheritance / Object oriented programming
-Object oriented programming is a fairly well-understood approach to write maintainable Software. Even so JavaScript does not explicetly favor OOP, it makes it easy enough to use it.
+Object oriented programming is a fairly well-understood approach to write maintainable Software. Even so JavaScript does not explicitly favor OOP, it makes it easy enough to use it.
 
 ```
 (function () {
@@ -306,13 +306,13 @@ Object oriented programming is a fairly well-understood approach to write mainta
 
 ## Comments
 
-Comments are the documentation of your code, therefore **tricky code should not be commented but rewritten**. 
+Comments are the documentation of your code; therefore **tricky code should not be commented but rewritten**. 
 
 All comments should be written in English and be politically correct, even those are supposed to be temporary.
 
 Comments should be indented relative to their position in the code, preceding or to the right of the code in question.
 
-Even if everybody likes commented code, do not commecnt every single line of code, you will kill the readability of it.
+Even if everybody likes commented code, do not comment every single line of code; you will kill the readability of it.
 
 Try to put comment at the top of a block of code to explain the point of it. And do not comment at the end of line of code, or only for declaration of variables (see JSDoc).
 
