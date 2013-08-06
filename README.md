@@ -200,7 +200,7 @@ if (isAuthorized) {
 ```
 
 ## Return statement
-To avoid deep nesting of if-statements, always return a functions value as early as possible.
+To avoid deep nesting of if-statements, always return a function's value as early as possible.
 
 ```
 function isPercentage(val) {
@@ -308,11 +308,17 @@ Object oriented programming is a fairly well-understood approach to write mainta
 
 Comments are the documentation of your code; therefore **tricky code should not be commented but rewritten**. 
 
-All comments should be written in English and be politically correct, even those are supposed to be temporary.
+All comments should be written in English and be politically correct, even those that are supposed to be temporary.
 
 Comments should be indented relative to their position in the code, preceding or to the right of the code in question.
 
 Even if everybody likes commented code, do not comment every single line of code; you will kill the readability of it.
+
+Comments are supposed to explain an algorithm, not repeat it in a different language. This is wrong:
+```
+// increment i by 1
+i += 1;
+```
 
 Try to put comment at the top of a block of code to explain the point of it. And do not comment at the end of line of code, or only for declaration of variables (see JSDoc).
 
@@ -368,4 +374,4 @@ function MyClass() {
 	this.someProperty = 4;
 }
 ```
-
+
