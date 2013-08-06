@@ -72,7 +72,7 @@ if (time < 60) {
 }
 ```
 
-##Naming
+## Naming
 All names SHOULD be written in English, American English.
 ### In general:
 ##### Variable and Property names
@@ -119,7 +119,7 @@ When exposed, should be prepended with a "_" (underscore) char:
 this._somePrivateVariable = statement;
 ```
 
-#####Specific Naming Conventions
+##### Specific Naming Conventions
 
 
 - The "is" prefix SHOULD be used for boolean variables and methods. Alternatives include "has", "can" and "should"
@@ -144,7 +144,7 @@ this._somePrivateVariable = statement;
 - Methods returning an object MAY be named after what they return, and methods returning void after what they do.
 
 
-##Variable declarations
+## Variable declarations
 Declare one variable per var statement, it makes it easier to re-order the lines, and put declarations wherever they make sense.
 Idealy, variables should be initialized where they are declared and they must be declared in the smallest scope possible. A null initialization is acceptable.
 
@@ -246,7 +246,7 @@ Object oriented programming is a fairly well-understood approach to write mainta
 	};
 
 
-	//Class definition
+	// Class definition
 
 	function Class(params) {
 		SuperClass.call(this);
