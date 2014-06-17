@@ -192,7 +192,7 @@ Do not extend the prototypes of any objects, especially native ones.
 
 ## Conditions
 Any non-trivial conditions should be assigned to a descriptive variable
-```
+```javascript
 var isAuthorized = (user.isAdmin() || user.isModerator());
 if (isAuthorized) {
 	console.log('winning');
@@ -202,7 +202,7 @@ if (isAuthorized) {
 ## Return statement
 To avoid deep nesting of if-statements, always return a function's value as early as possible.
 
-```
+```javascript
 function isPercentage(val) {
 	if (val < 0) {
 		return false;
@@ -220,7 +220,7 @@ function isPercentage(val) {
 ## Inheritance / Object oriented programming
 Object oriented programming is a fairly well-understood approach to write maintainable Software. Even so JavaScript does not explicitly favor OOP, it makes it easy enough to use it.
 
-```
+```javascript
 (function () {
 
 	// Helper function for inheritance
@@ -315,7 +315,7 @@ Comments should be indented relative to their position in the code, preceding or
 Even if everybody likes commented code, do not comment every single line of code; you will kill the readability of it.
 
 Comments are supposed to explain an algorithm, not repeat it in a different language. This is wrong:
-```
+```javascript
 // increment i by 1
 i += 1;
 ```
@@ -328,7 +328,7 @@ If you need to learn more about JSDoc and its tags you can visit the official [w
 
 ### Comment Syntax
 The JSDoc syntax is based on JavaDoc . Many tools extract metadata from JSDoc comments to perform code validation and optimizations. These comments must be well-formed.
-```
+```javascript
 /**
  * A JSDoc comment should begin with a slash and 2 asterisks.
  * Inline tags should be enclosed in braces like {@code this}.
@@ -338,7 +338,7 @@ The JSDoc syntax is based on JavaDoc . Many tools extract metadata from JSDoc co
 
 ### Class Comments
 Classes must be documented with a description and a type tag that identifies the constructor.
-```
+```javascript
 /**
  * Class making something fun and easy.
  * @param {string} arg1 An argument that makes this more interesting.
@@ -352,7 +352,7 @@ function MyClass(arg1, arg2) {
 
 ### Method and Function Comments
 Parameter and return types should be documented. The method description may be omitted if it is obvious from the parameter or return type descriptions. Method descriptions should start with a sentence written in the third person declarative voice.
-```
+```javascript
 /**
  * Operates on an instance of MyClass and returns something.
  * @param {MyClass} obj Instance of MyClass which leads to a long
@@ -364,7 +364,7 @@ function someMethod(obj) {
 }
 ```
 ### Property Comments
-```
+```javascript
 /** @constructor */
 function MyClass() {
 	/**
