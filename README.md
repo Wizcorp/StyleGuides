@@ -100,7 +100,7 @@ Should be declared as regular variables or static class properties, using all up
 ```javascript
 var MAX_LEVEL = 5;
 var playerAttribute = {
-	EARTH : 1,
+	EARTH: 1,
 	WATER: 2,
 	FIRE: 3
 };
@@ -121,12 +121,11 @@ this._somePrivateVariable = statement;
 
 ##### Specific Naming Conventions
 
-
-- The "is" prefix SHOULD be used for boolean variables and methods. Alternatives include "has", "can" and "should"
+- The "is" prefix SHOULD be used for boolean variables and methods. Alternatives include "has", "can" and "should".
 
 - The terms "initialize" or "init" CAN be used where an object or a concept is established.
 
-- UI Control variables SHOULD be suffixed by the control type. Examples: leftComboBox, topScrollPane
+- UI Control variables SHOULD be suffixed by the control type. Examples: leftComboBox, topScrollPane.
 
 - Plural form MUST be used to name collections.
 
@@ -145,7 +144,7 @@ this._somePrivateVariable = statement;
 
 
 ## Variable declarations
-Declare one variable per var statement, it makes it easier to re-order the lines, and put declarations wherever they make sense.
+Declare one variable per var statement, it makes it easier to re-order the lines, and put declarations in the order in which they make sense.
 Idealy, variables should be initialized where they are declared and they must be declared in the smallest scope possible. A null initialization is acceptable.
 
 
@@ -188,7 +187,7 @@ if (a === '') {
 ```
 
 ## Extending prototypes
-Do not extend the prototypes of any objects, especially native ones.
+Do not extend the prototypes of any native classes.
 
 ## Conditions
 Any non-trivial conditions should be assigned to a descriptive variable
@@ -310,7 +309,7 @@ Comments are the documentation of your code; therefore **tricky code should not 
 
 All comments should be written in English and be politically correct, even those that are supposed to be temporary.
 
-Comments should be indented relative to their position in the code, preceding or to the right of the code in question.
+Comments should be indented relative to their position in the code, preceding the code in question.
 
 Even if everybody likes commented code, do not comment every single line of code; you will kill the readability of it.
 
@@ -371,7 +370,7 @@ function MyClass() {
 	 * Maximum number of things per pane.
 	 * @type {number}
 	 */
-	this.someProperty = 4;
+	this.paneLimit = 4;
 }
 ```
 
