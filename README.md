@@ -22,7 +22,7 @@ Consistently styled code can:
 
 
 ## Indentation
-One of the most religious talk. Let's cut it out, at we use **tabs** for our projects. Tabs should be use for indentation only, meaning strictly only at the beginning of lines.
+Yes, a highly contencios topic so let's not waste time, at Wizcorp we use **tabs** for our projects. Tabs should be used for indentation, meaning at the beginning of lines only.
 
 
 ## Semicolons
