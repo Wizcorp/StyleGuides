@@ -49,6 +49,23 @@ if (time < 60) {
 }
 ```
 
+There is an objective reason for this. If you write the following code
+
+```javascript
+function myFunction()
+{
+	return
+	{
+		property1: 'value1',
+		property2: 'value2'
+	};
+}
+```
+
+`return\n` will be interpreted as `return;\n` and your function will be broken. Thus, for consistency matter, we want
+any curly braces to be on the same line as whatever they open.
+
+
 ## Naming
 All names SHOULD be written in English, American English.
 ### In general:
@@ -226,7 +243,7 @@ Object oriented programming is a fairly well-understood approach to write mainta
 
 	function Class(params) {
 		SuperClass.call(this);
-		
+
 		params = params || {};
 
 		this.width = params.width || 0;
@@ -243,7 +260,7 @@ Object oriented programming is a fairly well-understood approach to write mainta
 		if (width) {
 			this.width = width;
 		}
-		
+
 		if (height) {
 			this.height = height;
 		}
@@ -273,7 +290,7 @@ Object oriented programming is a fairly well-understood approach to write mainta
 
 	var myObject = new SubClass({ x: 10, width: 25 });
 	console.log(myObject);
-	
+
 	myObject.resize({ width: 10, height: 10 });
 	console.log(myObject);
 
@@ -282,7 +299,7 @@ Object oriented programming is a fairly well-understood approach to write mainta
 
 ## Comments
 
-Comments are the documentation of your code; therefore **tricky code should not be commented but rewritten**. 
+Comments are the documentation of your code; therefore **tricky code should not be commented but rewritten**.
 
 All comments should be written in English and be politically correct, even those that are supposed to be temporary.
 
