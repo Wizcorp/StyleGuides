@@ -1,13 +1,13 @@
 ## Indentation
-Yes, a highly contencios topic so let's not waste time, at Wizcorp we use **tabs** for our projects. Tabs should be used for indentation, meaning at the beginning of lines only.
+Yes, a highly contentious topic so let's not waste time, at Wizcorp we use **tabs** for our projects. Tabs should be used for indentation, meaning at the beginning of lines only.
 
 
 ## Semicolons
-It's true that JavaScript is so awesome that you don't have tu use them, but don't make this mistake and **use those semicolons**!
+It's true that JavaScript is so awesome that you don't have to use them, but don't make this mistake, and **use those semicolons**!
 
 
 ## Line length
-Limit your lines to **120 characters**. We are not living in the 90's anymore our screen got a lot bigger, but at the same time our brains are the same, so let's not go too far, readability come first.
+Limit your lines to **120 characters**. We are not living in the 90s anymore our screen got a lot bigger, but at the same time our brains are the same, so let's not go too far, readability come first.
 
 
 ## Quotes
