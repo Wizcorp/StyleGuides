@@ -9,7 +9,7 @@ A style guide or style manual is a set of standards for the writing and design o
 
 ## Why is consistent code style important?
 
-They say that good code is it's own documentation. We don't completely agree with this (docs are important!), the fact is, the more readable our source code is, the easier it is to maintain.
+They say that good code is its own documentation. We don't completely agree with this (docs are important!), the fact is, the more readable our source code is, the easier it is to maintain.
 
 Following a consistent style guide both helps enforce this concept and improves the overall quality of the code we write. This facilitates other developers stepping in to assist with maintenance more easily and can certainly save time in the long haul.
 
